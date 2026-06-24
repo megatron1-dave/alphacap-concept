@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transactions - ALPHACAP Partners</title>
+  <link rel="stylesheet" href="style.css?v=4" />
+  <style>
+    .tx-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 48px;
+    }
+
+    .tx-card {
+      background: var(--navy2);
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s;
+    }
+
+    .tx-card:hover { background: var(--navy3); }
+
+    .tx-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--silver);
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+
+    .tx-desc {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .tx-rule {
+      height: 1px;
+      background: var(--line);
+      margin-bottom: 20px;
+    }
+
+    .tx-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .tx-sector {
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1000px) {
+      .tx-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .tx-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ALPHA<span>CAP</span> Partners</a>
+    <ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="transactions.html" class="active">ALPHACAP Transactions</a></li><li><a href="past-transactions.html">Past Team Transactions</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="label">Track Record</p>
+    <h1>ALPHACAP Transactions</h1>
+    <p>A selection of mandates completed by ALPHACAP Partners and its team, spanning M&amp;A advisory, restructuring, and capital transactions across South-East Europe.</p>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <img src="Transactionscomp.png" alt="ALPHACAP Partners Completed Transactions" style="width:100%; display:block; margin-bottom: 48px;" />
+
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">ALPHA<span>CAP</span> Partners</a>
+      <nav class="footer-nav">
+        <a href="about.html">About Us</a>
+        <a href="team.html">Team</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 ALPHACAP Partners Ltd &nbsp;&middot;&nbsp; 49 Grosvenor Street, London W1K 3HP</span>
+      <div>
+        <a href="#">Disclaimer</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

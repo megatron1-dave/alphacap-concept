@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team - ALPHACAP Partners</title>
+  <link rel="stylesheet" href="style.css?v=4" />
+  <style>
+
+    /* ── Emmanuel full-width card ── */
+    .team-featured {
+      background: #ffffff;
+      padding: 48px 44px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+      border-bottom: 1px solid #e0ddd8;
+      transition: background 0.2s;
+    }
+    .team-featured:hover { background: #f7f6f3; }
+
+    .team-featured .team-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1.2;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(100%);
+      display: block;
+    }
+
+    /* ── Two-column pair rows ── */
+    /*
+      Each pair (George+Vasilis, Gregory+Denis) uses a 2-col grid
+      with subgrid rows so that the Education section snaps at the
+      same row in both columns.
+      Rows: [photo] [name-block] [bio-grow] [meta]
+    */
+    .team-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #e0ddd8;
+      border-bottom: 1px solid #e0ddd8;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    .team-pair-card {
+      background: #ffffff;
+      display: grid;
+      grid-row: span 4;
+      grid-template-rows: subgrid;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .team-pair-card:hover { background: #f7f6f3; }
+
+    .tc-photo {
+      padding: 48px 44px 0;
+    }
+
+    .team-photo {
+      width: 50%;
+      aspect-ratio: 3 / 3.6;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(100%);
+      display: block;
+    }
+
+    .tc-header {
+      padding: 28px 44px 0;
+    }
+
+    .tc-bio {
+      padding: 0 44px;
+    }
+
+    .tc-meta {
+      padding: 0 44px 44px;
+    }
+
+    /* ── Shared text styles ── */
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .team-title {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .team-short-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--navy);
+      opacity: 0.2;
+      margin-bottom: 20px;
+    }
+
+    .team-bio-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .team-bio-body p {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .team-bio-body p:last-child { margin-bottom: 0; }
+
+    .team-meta-section {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid #e0ddd8;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .team-meta-block h5 {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .team-meta-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .team-meta-block ul li {
+      font-size: 12.5px;
+      color: #374151;
+      line-height: 1.7;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .team-meta-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 1px;
+      background: var(--navy);
+      opacity: 0.3;
+    }
+
+    .team-email {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid #e0ddd8;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .team-email:hover { color: var(--navy); border-color: var(--navy); }
+
+    /* Emmanuel featured text styles */
+    .team-featured .team-name { font-size: 26px; margin-bottom: 4px; }
+    .team-featured .team-bio-lead { font-size: 19px; }
+
+    .featured-meta {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid #e0ddd8;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .team-featured { grid-template-columns: 1fr; }
+      .team-pair { grid-template-columns: 1fr; grid-template-rows: none; }
+      .team-pair-card { grid-row: auto; grid-template-rows: none; display: flex; flex-direction: column; }
+      .tc-photo, .tc-header, .tc-bio, .tc-meta { padding: 20px 24px 0; }
+      .tc-meta { padding-bottom: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ALPHA<span>CAP</span> Partners</a>
+    <ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="transactions.html">ALPHACAP Transactions</a></li><li><a href="past-transactions.html">Past Team Transactions</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="label">Our People</p>
+    <h1>The Team</h1>
+    <p>Our principals have worked at some of the world's leading investment banks and private equity firms. Every client engagement is led at senior level - there is no passing of work down the chain.</p>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <!-- ── Emmanuel ── -->
+      <div class="team-featured" id="emmanuel-androulakis">
+        <img src="emmanuel.png" alt="Emmanuel G. Androulakis" class="team-photo" style="width:100%; aspect-ratio:1/1.2;" />
+        <div>
+          <div class="team-name">Emmanuel G. Androulakis</div>
+          <div class="team-title">Managing Partner</div>
+          <div class="team-short-rule"></div>
+          <p class="team-bio-lead">Emmanuel brings 25 years of expertise in Private Equity and Investment Banking, with a career spanning some of the most complex transactions across South-East Europe.</p>
+          <div class="team-bio-body">
+            <p>Emmanuel began his career at UBS Investment Bank in Equity Research, specialising in Metals &amp; Mining, where he achieved top rankings as an analyst in both European and Global surveys from Institutional Investor and Reuters.</p>
+            <p>He subsequently progressed to UBS's M&amp;A department, concentrating on South-East Europe for eight years, during which he led numerous equity, debt, and M&amp;A transactions, gaining extensive experience in complex cross-border transaction structuring and execution.</p>
+            <p>He went on to establish and lead the Investment Banking department at Axia Ventures Group in Greece, developing it into the country's largest independent advisory team. He later joined the Libra Group in London as Executive Vice President for five years, completing multiple investments across energy, retail, financial services, telecommunications, hospitality, and real estate.</p>
+            <p>Emmanuel founded ALPHACAP Partners in 2016 with the conviction that clients in South-East Europe deserve truly independent, senior-level counsel of the highest standard.</p>
+          </div>
+          <div class="featured-meta">
+            <div class="team-meta-block">
+              <h5>Education</h5>
+              <ul>
+                <li>M.Phil. in Finance, St John's College, University of Cambridge</li>
+                <li>B.Sc. (First Class Honours) in Banking &amp; International Finance, CASS Business School, London</li>
+              </ul>
+            </div>
+            <div class="team-meta-block">
+              <h5>Distinctions</h5>
+              <ul>
+                <li>Fellow of the Cambridge European Trust</li>
+                <li>Former Executive Committee Member, Hellenic Bankers Association, UK</li>
+                <li>Ranked No. 1 Analyst, Institutional Investor &amp; Reuters</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Row: George + Vasilis ── -->
+      <div class="team-pair">
+
+        <div class="team-pair-card" id="george-axaris">
+          <div class="tc-photo">
+            <img src="george.png" alt="George Axaris" class="team-photo" />
+          </div>
+          <div class="tc-header">
+            <div class="team-name">George Axaris</div>
+            <div class="team-title">Vice President</div>
+            <div class="team-short-rule"></div>
+          </div>
+          <div class="tc-bio">
+            <p class="team-bio-lead">George brings investment banking experience from two of the world's leading financial institutions, with a strong grounding in financial advisory and global capital markets.</p>
+            <div class="team-bio-body">
+              <p>George held an investment banking position at Jefferies in the Financial Institutions Group, where he worked on M&amp;A and capital markets transactions across the financial services sector. Prior to that, he worked at Société Générale in the Global Markets Division.</p>
+              <p>At ALPHACAP Partners, George plays a central role in transaction execution, bringing rigorous analytical capability and cross-border deal experience to every mandate.</p>
+            </div>
+          </div>
+          <div class="tc-meta">
+            <div class="team-meta-section">
+              <div class="team-meta-block">
+                <h5>Education</h5>
+                <ul>
+                  <li>M.Sc. in Accounting and Finance, London School of Economics</li>
+                  <li>B.Sc. in Economics, Aristotle University of Thessaloniki</li>
+                </ul>
+              </div>
+              <div class="team-meta-block">
+                <h5>Prior Institutions</h5>
+                <ul>
+                  <li>Jefferies - Financial Institutions Group</li>
+                  <li>Société Générale - Global Markets Division</li>
+                </ul>
+              </div>
+            </div>
+            <a href="mailto:ga@alphacap.eu" class="team-email">ga@alphacap.eu</a>
+          </div>
+        </div>
+
+        <div class="team-pair-card" id="vasilis-kotzaoustopoulos">
+          <div class="tc-photo">
+            <img src="vasilis.png" alt="Vasilis Kotzaoustopoulos" class="team-photo" />
+          </div>
+          <div class="tc-header">
+            <div class="team-name">Vasilis Kotzaoustopoulos</div>
+            <div class="team-title">Associate</div>
+            <div class="team-short-rule"></div>
+          </div>
+          <div class="tc-bio">
+            <p class="team-bio-lead">Vasilis combines a strong technical foundation in engineering with hands-on experience in renewable energy investment and portfolio management.</p>
+            <div class="team-bio-body">
+              <p>Prior to joining ALPHACAP Partners, Vasilis worked as a Portfolio Manager at EuroEnergy, a renewable energy investment company, where he managed a portfolio of energy assets and gained direct experience in project finance and investment decision-making.</p>
+              <p>His background spans both the analytical rigour of engineering and the commercial discipline of finance, making him well-suited to transactions in the energy and infrastructure space.</p>
+            </div>
+          </div>
+          <div class="tc-meta">
+            <div class="team-meta-section">
+              <div class="team-meta-block">
+                <h5>Education</h5>
+                <ul>
+                  <li>M.Sc. in Corporate Finance, SDA Bocconi (in progress)</li>
+                  <li>Integrated Master's in Chemical Engineering, National Technical University of Athens</li>
+                </ul>
+              </div>
+              <div class="team-meta-block">
+                <h5>Prior Experience</h5>
+                <ul>
+                  <li>Portfolio Manager, EuroEnergy</li>
+                </ul>
+              </div>
+            </div>
+            <a href="mailto:vk@alphacap.eu" class="team-email">vk@alphacap.eu</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Row: Gregory + Denis ── -->
+      <div class="team-pair">
+
+        <div class="team-pair-card" id="gregory-kossyvas">
+          <div class="tc-photo">
+            <img src="gregory.png" alt="Gregory Kossyvas" class="team-photo" />
+          </div>
+          <div class="tc-header">
+            <div class="team-name">Gregory Kossyvas</div>
+            <div class="team-title">Associate</div>
+            <div class="team-short-rule"></div>
+          </div>
+          <div class="tc-bio">
+            <p class="team-bio-lead">Gregory brings a breadth of experience across energy, metals, and professional services, complemented by advanced studies in corporate finance.</p>
+            <div class="team-bio-body">
+              <p>Gregory previously served as an Investment Incentives Officer at Metlen Energy &amp; Metals, one of Greece's largest industrial groups, where he managed investment incentive programmes and worked closely with the group's corporate finance function.</p>
+              <p>Prior to that he worked as a Consultant at PwC, advising clients across a range of corporate finance and restructuring engagements. His combination of advisory and corporate experience gives him a well-rounded perspective on transactions from multiple vantage points.</p>
+            </div>
+          </div>
+          <div class="tc-meta">
+            <div class="team-meta-section">
+              <div class="team-meta-block">
+                <h5>Education</h5>
+                <ul>
+                  <li>M.Sc. in Corporate Finance, SDA Bocconi (in progress)</li>
+                  <li>B.Sc. in Economics, National and Kapodistrian University of Athens</li>
+                </ul>
+              </div>
+              <div class="team-meta-block">
+                <h5>Prior Experience</h5>
+                <ul>
+                  <li>Investment Incentives Officer, Metlen Energy &amp; Metals</li>
+                  <li>Consultant, PwC</li>
+                </ul>
+              </div>
+            </div>
+            <a href="mailto:gk@alphacap.eu" class="team-email">gk@alphacap.eu</a>
+          </div>
+        </div>
+
+        <div class="team-pair-card" id="denis-vougioukas">
+          <div class="tc-photo">
+            <img src="denis.png" alt="Denis Vougioukas" class="team-photo" />
+          </div>
+          <div class="tc-header">
+            <div class="team-name">Denis Vougioukas</div>
+            <div class="team-title">Analyst</div>
+            <div class="team-short-rule"></div>
+          </div>
+          <div class="tc-bio">
+            <p class="team-bio-lead">Denis joined ALPHACAP Partners with a strong academic foundation in finance and the benefit of an international educational experience from the outset of his career.</p>
+            <div class="team-bio-body">
+              <p>Denis holds a B.Sc. in Finance from The American College of Greece (Deree). During his undergraduate studies, he was awarded a fully funded scholarship by the Latsis Foundation, jointly with ACG, to participate in an exchange programme at Boston College - a recognition of academic excellence and promise.</p>
+              <p>At ALPHACAP Partners, Denis supports the team across transaction analysis, financial modelling, and research, building his investment banking experience under direct senior supervision.</p>
+            </div>
+          </div>
+          <div class="tc-meta">
+            <div class="team-meta-section">
+              <div class="team-meta-block">
+                <h5>Education</h5>
+                <ul>
+                  <li>B.Sc. in Finance, The American College of Greece (Deree)</li>
+                  <li>Exchange Programme, Boston College (Latsis Foundation Scholar)</li>
+                </ul>
+              </div>
+            </div>
+            <a href="mailto:dv@alphacap.eu" class="team-email">dv@alphacap.eu</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 80px; padding-top: 64px; border-top: 1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+        <div>
+          <p class="section-label">Join the Team</p>
+          <h2 class="section-heading" style="font-size:34px; margin-bottom:10px;">Interested in Working with Us?</h2>
+          <p style="color: var(--muted); max-width:500px;">We are always open to hearing from talented individuals with a passion for investment banking in South-East Europe.</p>
+        </div>
+        <a href="careers.html" class="btn">View Careers</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">ALPHA<span>CAP</span> Partners</a>
+      <nav class="footer-nav">
+        <a href="about.html">About Us</a>
+        <a href="team.html">Team</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 ALPHACAP Partners Ltd &nbsp;&middot;&nbsp; 49 Grosvenor Street, London W1K 3HP</span>
+      <div>
+        <a href="#">Disclaimer</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
