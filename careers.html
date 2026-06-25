@@ -13,7 +13,7 @@
     <ul>
       <li><a href="about.html">About Us</a></li>
       <li><a href="team.html">Team</a></li>
-      <li><a href="transactions.html">Transactions</a></li><li><a href="past-transactions.html" class="nav-sep">Past Transactions</a></li>
+      <li class="has-dropdown"><a href="transactions.html">Transactions</a><div class="dropdown"><a href="transactions.html">ALPHACAP Transactions</a><a href="past-transactions.html">Past Team Transactions</a></div></li>
       <li><a href="careers.html" class="active">Careers</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
@@ -86,5 +86,17 @@
     </div>
   </footer>
 
+<script>
+(function(){
+  var item = document.querySelector(".has-dropdown");
+  if(!item) return;
+  item.addEventListener("mouseenter", function(){ item.classList.add("open"); });
+  item.addEventListener("mouseleave", function(){ item.classList.remove("open"); });
+  item.querySelector("a").addEventListener("click", function(e){
+    if(!item.classList.contains("open")){ e.preventDefault(); item.classList.add("open"); }
+  });
+  document.addEventListener("click", function(e){ if(!item.contains(e.target)) item.classList.remove("open"); });
+})();
+</script>
 </body>
 </html>
