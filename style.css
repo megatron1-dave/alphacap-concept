@@ -95,7 +95,8 @@ nav ul a:hover { color: var(--white); }
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
-.has-dropdown.open .dropdown { display: block; }
+.has-dropdown.open .dropdown,
+.has-dropdown:hover .dropdown { display: block; }
 
 .has-dropdown .dropdown a {
   display: block;
