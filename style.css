@@ -82,15 +82,13 @@ nav ul a:hover { color: var(--white); }
 
 .has-dropdown .dropdown {
   display: none;
-  position: absolute;
-  top: calc(100% + 18px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
+  top: 76px;
   background: rgba(11,20,40,0.99);
   border: 1px solid var(--line);
   border-top: 2px solid var(--silver);
   min-width: 220px;
-  z-index: 9999;
+  z-index: 99999;
   padding: 8px 0;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
